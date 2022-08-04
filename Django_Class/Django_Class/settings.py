@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
-    'singlepages'
+    'single_pages'
 ]
 
 MIDDLEWARE = [
@@ -111,7 +111,7 @@ TIME_ZONE = 'Asia/Seoul'
 
 USE_I18N = True
 
-USE_TZ = True
+USE_TZ = False # TIME_ZONE을 변경해주면 False 로 바꿔줘야 한다?
 
 
 # Static files (CSS, JavaScript, Images)
