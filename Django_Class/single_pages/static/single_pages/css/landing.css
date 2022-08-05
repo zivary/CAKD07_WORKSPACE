@@ -1,5 +1,5 @@
 body {
-    background: url('/static/single_pages/images/hriver.jpg') no-repeat center center fixed;
+    background: url('/static/single_pages/images/sevensistesrs.JPG') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
@@ -9,7 +9,33 @@ body {
 section {
     margin-bottom: 150px;
 }
+/* section li{
+    color: #757575;
+} */
+
+section>div>div>div>ul {
+    color: black ;
+    background-color: #cbc9c7;
+    opacity: 0.75;
+}
 
 .card {
     background-color: rgba(255, 255, 255, 0.6);
+}
+
+main>.container {
+    padding: 60px 15px 0;
+}
+
+.footer {
+    background-color: #dddddd;
+}
+
+.footer>.container {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+code {
+    font-size: 80%;
 }
