@@ -13,7 +13,7 @@ section {
     color: #757575;
 } */
 
-section>div>div>div>ul {
+.contents {
     color: black ;
     background-color: #cbc9c7;
     opacity: 0.75;
