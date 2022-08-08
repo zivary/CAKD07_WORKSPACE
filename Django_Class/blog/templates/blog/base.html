@@ -17,8 +17,11 @@
     <header>
     {% include 'blog/navbar.html' %}
     </header>
+    <div class="container mt-5 pt-5">
+    <div class="row">
     {% block main_area %} {% endblock %}
-
+    </div>
+    </div>
     {% include 'blog/footer.html' %}
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
