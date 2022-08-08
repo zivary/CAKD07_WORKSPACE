@@ -52,6 +52,7 @@
                     <th scope="col">Title</th>
                     <th scope="col">개시일</th>
                     <th scope="col">수정일</th>
+                    <th scope="col">head_image</th>
                     <th scope="col">Text</th>
                 </tr>
             </thead>
@@ -62,6 +63,7 @@
                     <td><a href="{{p.get_absolute_url}}">{{p.title}}</a></td>
                     <td>{{p.created_at.date}}</td>
                     <td>{{p.update_at.date}}</td>
+                    <td><img class="img-fluid rounded" src="{{p.head_image.url}}" ></td>
                     <td>{{p.content}}</td>
                 </tr>
                 {% endfor %}
