@@ -1,13 +1,21 @@
 {% extends 'blog/base.html'%}
-{% block head_title %} {{post.title}} - Blog
-{% endblock %}
-{% block main_area %}
 
+{% block head_title %}
+    {{post.title}} - Blog
+{% endblock %}
+
+{% block main_area %}
     <div class="container mt-5 pt-5">
     <h2>{{post.title}}</h2>
     <h4>{{post.created_at}}</h4>
-    <img class="img-fluid rounded" src="{{p.head_image.url}}" >
-    <p>{{post.content}}</p>
+    {% if p.head_image %}
+        <img class="img-fluid rounded" src="{{p.head_image.url}}" alt="{{p}} head-image" ></td>
+    {% else %}
+        <img class="img-fluid rounded" src="https://picsum.photos/seed/{{p.id}}/800/200" alt="{{p}} ramdaom-image" >
+    {% endif %}
+        <p>{{post.content}}</p>
+    {% if post.file_upload %}
+        <a href="{{post.file_upload.url}}" class="btn bun-outline-dark" role='button' download>Download</a>
+    {% endif %}
     </div>
-
 {% endblock %}
