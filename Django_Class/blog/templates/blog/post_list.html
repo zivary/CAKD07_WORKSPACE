@@ -29,9 +29,9 @@
                     </td>
                     <td>
                         {% if p.hook_text %}
-                        {{p.hook_text}}
+                            {{p.hook_text}}
                         {% else %}
-                        {{p.contet | truncatewords:30}}
+                            {{p.content | truncatewords:30}}
                         {% endif %}
                     </td>
                 </tr>
