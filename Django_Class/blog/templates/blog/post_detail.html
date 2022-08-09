@@ -5,15 +5,19 @@
 {% endblock %}
 
 {% block main_area %}
-    <h2>{{post.title}}</h2>
-    <h4>{{post.created_at}}</h4>
-    {% if post.head_image %}
-        <img class="img-fluid rounded" src="{{post.head_image.url}}" alt="{{post}} head-image" ></td>
-    {% else %}
-        <img class="img-fluid rounded" src="https://picsum.photos/seed/{{post.id}}/800/200" alt="{{post}} ramdaom-image" >
-    {% endif %}
-        <p class="contents">{{post.content}}</p>
-    {% if post.file_upload %}
-        <a href="{{post.file_upload.url}}" class="btn bun-outline-dark" role='button' download>Download</a>
-    {% endif %}
+<div class="container mt-5 pt-5">
+    <div class="row">
+        <h2>{{post.title}}</h2>
+        <h4>{{post.created_at}}</h4>
+        {% if post.head_image %}
+            <img class="img-fluid rounded" src="{{post.head_image.url}}" alt="{{post}} head-image" ></td>
+        {% else %}
+            <img class="img-fluid rounded" src="https://picsum.photos/seed/{{post.id}}/800/200" alt="{{post}} ramdaom-image" >
+        {% endif %}
+            <p class="contents">{{post.content}}</p>
+        {% if post.file_upload %}
+            <a href="{{post.file_upload.url}}" class="btn bun-outline-dark" role='button' download>Download</a>
+        {% endif %}
+    </div>
+</div>
 {% endblock %}
