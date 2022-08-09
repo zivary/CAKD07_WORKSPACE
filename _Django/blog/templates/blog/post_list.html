@@ -87,10 +87,11 @@
                 <!-- Featured blog post-->
                 {% for p in post_list %}
                 <div class="card">
-                    <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg"
-                            alt="..."></a>
+                    <a href="#!"><img class="card-img-top" src="{{p.head_image.url}}"
+                            alt="Card image cap"></a>
                     <div class="card-body">
-                        <div class="small text-muted">Posted on {{p.created_at}} By <a href='#'>작성자명 의치 (개발예정)</a></div>
+                        <div class="small text-muted">Posted on {{p.created_at}}</div>
+                        <div>By <a href='#'>작성자명 의치 (개발예정)</a></div>
                         <h2 class="card-title">{{p.title}}</h2>
                         <p class="card-text">{{p.content}}</p>
                         <a class="btn btn-primary" href="{{p.get_absolute_url}}">Read more →</a>
