@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="{% static 'single_pages/css/django.css' %}" media="screen">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
     <link rel="shortcut icon" type="image/x-icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/800px-Apple_logo_black.svg.png">
+    <script src="https://kit.fontawesome.com/b46142cdff.js" crossorigin="anonymous"></script>
+
+
 </head>
 <body>
     <header>
@@ -40,7 +43,7 @@
         </nav>
     </header>
     <!-- Page content-->
-    <div class="container mt-5">
+    <div class="container my-5">
         <div class="row">
             <div class="col-lg-8">
                 <!-- Post content-->
@@ -57,15 +60,30 @@
                         <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a>
                     </header>
                     <!-- Preview image figure-->
-                    {%if p.head_image%}
+                    {%if post.head_image%}
                     <figure class="mb-4">
-                        <img class="img-fluid rounded" src="{{post.head_image.url}}" alt="{{p}} head image">
+                        <img class="img-fluid rounded" src="{{post.head_image.url}}" alt="{{post}} head image">
                     {% endif%}
                     </figure>
                     <!-- Post content-->
                     <section class="mb-5">
                         <p class="fs-5 mb-4">{{post.content}}</p>
                     </section>
+                    <!-- File download -->
+                    {%if post.file_upload %}
+                        <a href="{{post.file_upload.url}}" class="btn btn-primary" role="button" download>Download:
+                            {% if post.get_file_ext == 'csv' %}
+                            <i class="fas fa-file-csv"></i>
+                            {% elif post.get_file_ext == 'xlsx' or post.get_file_ext == 'xls' %}
+                            <i class="fas fa-file-excel"></i>
+                            {% elif post.get_file_ext == 'docx' or post.get_file_ext == 'doc' %}
+                            <i class="fas fa-file-word"></i>
+                            {% else %}
+                            <i class="for fa-file"></i>
+                            {% endif %}
+
+                        </a>
+                    {% endif%}
                 </article>
             </div>
             <!-- Side widgets-->
