@@ -1,16 +1,16 @@
 {% extends 'blog/base.html'%}
 {% load static %}
 {% block head_title %}
-    {{post.title}} - Blog
+{{post.title}} - Blog
 {% endblock %}
 {% block main_area %}
 <main>
     <!-- Page content-->
     <div class="container">
         <div class="row">
-            <div class="col-md-8 col-lg-9">
+            <article class="col-md-8 col-lg-9">
                 <!-- Post content-->
-                <article class="contents my-2 p-3">
+                <div class="contents my-2 p-3">
                     <!-- Post header-->
                     <header class=>
                         <!-- Post title-->
@@ -47,7 +47,7 @@
                             {% endif %}
                         </a>
                     {% endif%}
-                </article>
+                </div>
                 <!-- Comments section-->
                 <section class="mb-5">
                     <div class="card bg-light">
@@ -90,43 +90,8 @@
                         </div>
                     </div>
                 </section>
-            </div>
-            <!-- Side widgets-->
-            <div class="col-md-4 col-lg-3">
-                <!-- Search widget-->
-                <div class="card my-4">
-                    <div class="card-header">Search</div>
-                    <div class="card-body">
-                        <div class="input-group">
-                            <input class="form-control" type="text" placeholder="Enter search term..."
-                                aria-label="Enter search term..." aria-describedby="button-search">
-                            <button class="btn btn-primary" id="button-search" type="button">Go!</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- Categories widget-->
-                <div class="card mb-4">
-                    <div class="card-header">Categories</div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <ul class="list-unstyled mb-0">
-                                    <li><a href="#!">Web Design</a></li>
-                                    <li><a href="#!">HTML</a></li>
-                                    <li><a href="#!">Freebies</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-sm-6">
-                                <ul class="list-unstyled mb-0">
-                                    <li><a href="#!">JavaScript</a></li>
-                                    <li><a href="#!">CSS</a></li>
-                                    <li><a href="#!">Tutorials</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </article>
+            {% include 'blog/aside.html' %}
         </div>
     </div>
 </main>
