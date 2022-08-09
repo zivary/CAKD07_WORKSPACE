@@ -1,18 +1,18 @@
 {% extends 'blog/base.html'%}
-
+{% load static %}
 {% block head_title %}
     {{post.title}} - Blog
 {% endblock %}
 {% block main_area %}
 <main>
     <!-- Page content-->
-    <div class="container my-5">
+    <div class="container">
         <div class="row">
-            <div class="col-lg-8">
+            <div class="col-md-8 col-lg-9">
                 <!-- Post content-->
                 <article>
                     <!-- Post header-->
-                    <header class="my-3">
+                    <header class=>
                         <!-- Post title-->
                         <h1 class="fw-bolder mb-1">{{post.title}}</h1>
                         <!-- Post meta content-->

@@ -1,13 +1,16 @@
 {% extends 'blog/base.html'%}
-
+{% load static %}
+{% block head_title %}
+    Blog
+{% endblock %}
 {% block main_area %}
 <main>
     <!-- Page content-->
-    <div class="container my-5">
+    <div class="container">
         <div class="row">
             <!-- Blog entries-->
             <div class="col-md-8 col-lg-9">
-                <h1 class="my-3">Blog</h1>
+                <h1>Blog</h1>
                 <!-- Featured blog post-->
                 {% for p in post_list %}
                 <div class="card">

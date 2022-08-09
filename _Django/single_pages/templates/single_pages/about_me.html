@@ -1,12 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    어바웃미
-</body>
-</html>
+{% extends 'blog/base.html'%}
+{% load static %}
+{% block head_title %}
+    About Me
+{% endblock %}
+{% block main_area %}
+<main>
+    <section>
+        <div class="container mt-5 pt-5">
+            <div class="row">
+                <div class="col-lg-7">
+                    <h1>Data Scientist, Jasse</h1>
+                    <br />
+                    <ul class="py-3 contents">
+                        <li>Project</li>
+                        <ul>
+                            <li>1. 데이터 예측 : 타이타닉 생존자 예측</li>
+                            <li>2. 데이터 분석 : 고객거래데이터 분석</li>
+                            <li>3. 웹개발 : 영화 리퓨 포털사이트 웹개발</li>
+                            <li>4. 데이터 기획 : 빅데이터로 본 국민건강보험</li>
+                            <li>5. 데이터안심구역 시각화 경진대회</li>
+                        </ul>
+                        <li>Tech Stack</li>
+                        <ul>
+                            <li>OS : Linux, Window</li>
+                            <li>programming language : Python</li>
+                            <li>Front-End Framework : React</li>
+                            <li>Back-End Framework : Django</li>
+                            <li>DB : sqlite</li>
+                        </ul>
+                    </ul>
+                </div>
+                <div class="col-lg-5 mt-5 pt-4">
+                    <img class="img-fluid" src="{% static 'single_pages/images/IMG_4131.JPG' %}">
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}
