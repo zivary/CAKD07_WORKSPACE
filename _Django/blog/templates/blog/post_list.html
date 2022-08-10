@@ -10,7 +10,8 @@ Blog
         <div class="row">
             <!-- Blog entries-->
             <article class="col-md-8 col-lg-9">
-                <h1>Blog</h1>
+                <h1>Blog {% if category%}<span class="badge badge-secondary">{{category}}</span>{% endif%}</h1>
+                {% if post_list.exists %}
                 <!-- Featured blog post-->
                 {% for p in post_list %}
                 <div class="card" id="post-{{p.pk}}">
@@ -38,6 +39,7 @@ Blog
                     </div>
                 </div>
                 {% endfor %}
+                {% endif%}
                 <!-- Pagination-->
                 <nav aria-label="Pagination">
                     <div class="mb-5">
