@@ -7,7 +7,7 @@ Create Post - Blog
     <h1>Create New Post</h1>
     <hr/>
     <form method="post" enctype="multipart/form-data">{% csrf_token %}
-        <table>
+        <table class="contents">
             {{ form }}
         </table>
         <button type="submit" class="btn bnt-primary float-right">Submit</button>
