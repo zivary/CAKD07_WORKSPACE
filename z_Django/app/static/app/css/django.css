@@ -1,7 +1,21 @@
 body {
     padding-top: 56px;
+    background: url('/static/app/images/sevensistesrs.JPG') no-repeat center center fixed;
 }
 
-aside {
-    position: static !important;
+.contents {
+    color: black ;
+    background-color: #cbc9c7;
+    opacity: 0.75;
 }
+
+#post-area {
+    padding: 10px;
+    color: black ;
+    background-color: #cbc9c7;
+    opacity: 0.75;
+}
+
+/* footer {
+    background-color: #dddddd;
+} */
