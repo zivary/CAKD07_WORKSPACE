@@ -10,5 +10,22 @@ Home
     <h1 class="mt-5">미래의 Data Scientist를 꿈꾸는 CAKD 7기</h1>
     <br>
     <h4 class="pl-auto">교육기관: <a href="https://www.choongang.co.kr">중앙청보처리학원</a></h4>
+    <div class="col-lg-5 mt-5 float-right">
+        <h2 class="text-dark">Blog - Recent Posts</h2>
+        {% for post in recent_posts %}
+        <div class="card mt-1">
+            <div class="card-body">
+                <h6><a href="{{post.get_absolute_url}}" class="text-docoration-none text-dark">{{post.title}}</a></h6>
+                <span class="badge badge-pill badge-light float-right">
+                    {{post.author.username}}
+                    &nbsp;
+                    &nbsp;
+                    {{post.created_at}}
+                </span>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
 </div>
+
 {% endblock %}
