@@ -1,0 +1,26 @@
+{% extends 'base.html'%}
+{% load static %}
+<head>
+{% block head_title %}
+ML - inputdata
+{% endblock %}
+
+{% block main %}
+<div class="container">
+
+<h1>This is ML Inputdata</h1>
+<form class="contents my-3 p-3" action="ml_result/">
+    {% csrf_token %}
+    <div><label>fare_cat: &nbsp;</label><input type="number" name='fare_cat'></input></div>
+    <div><label>age_cat: &nbsp;</label><input type="number" name='age_cat'></input></div>
+    <div><label>family: &nbsp;</label><input type="number" name='family'></input></div>
+    <div><label>sex_female: &nbsp;</label><input type="number" name='sex_female'></input></div>
+    <div><label>sex_male: &nbsp;</label><input type="number" name='sex_male'></input></div>
+    <div><label>embarked_C: &nbsp;</label><input type="number" name='embarked_C'></input></div>
+    <div><label>embarked_Q: &nbsp;</label><input type="number" name='embarked_Q'></input></div>
+    <div><label>embarked_S: &nbsp;</label><input type="number" name='embarked_S'></input></div>
+    <input type="submit" value="전송"></input>
+</form>
+
+</div>
+{% endblock %}

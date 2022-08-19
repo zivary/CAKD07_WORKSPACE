@@ -1,13 +1,13 @@
 from django.shortcuts import render
 
 # Create your views here.
-def inputdata(request):
+def program_inputdata(request):
     return render(
         request,
         'program/program_inputdata.html'
     )
 
-def result(request):
+def program_result(request):
     a = request.GET['a']
     b = request.GET['b']
     lis=[]
