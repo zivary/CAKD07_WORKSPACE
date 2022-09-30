@@ -10,6 +10,7 @@ from django.db.models import Q
 
 # Create your views here.
 
+
 class PostList(ListView):
     model = Post
     ordering = '-pk'
@@ -18,7 +19,8 @@ class PostList(ListView):
     def get_context_data(self, **kwargs):
         context = super(PostList, self).get_context_data()
         context['categories'] = Category.objects.all()
-        context['no_category_post_count'] = Post.objects.filter(category=None).count()
+        context['no_category_post_count'] = Post.objects.filter(
+            category=None).count()
         return context
 
 
@@ -28,14 +30,16 @@ class PostDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super(PostDetail, self).get_context_data()
         context['categories'] = Category.objects.all()
-        context['no_category_post_count'] = Post.objects.filter(category=None).count()
+        context['no_category_post_count'] = Post.objects.filter(
+            category=None).count()
         context['comment_form'] = CommentForm
         return context
 
 
 class PostCreate(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     model = Post
-    fields = ['title', 'hook_text', 'content', 'head_image', 'file_upload', 'category']
+    fields = ['title', 'hook_text', 'content',
+              'head_image', 'file_upload', 'category']
 
     def test_func(self):
         return self.request.user.is_superuser or self.request.user.is_staff
@@ -66,7 +70,8 @@ class PostCreate(LoginRequiredMixin, UserPassesTestMixin, CreateView):
 
 class PostUpdate(LoginRequiredMixin, UpdateView):
     model = Post
-    fields = ['title', 'hook_text', 'content', 'head_image', 'file_upload', 'category']
+    fields = ['title', 'hook_text', 'content',
+              'head_image', 'file_upload', 'category']
 
     template_name = 'blog/post_update_form.html'
 
@@ -97,7 +102,7 @@ class PostUpdate(LoginRequiredMixin, UpdateView):
 
             for t in tags_list:
                 t = t.strip()
-                if t=='':
+                if t == '':
                     continue
                 tag, is_tag_created = Tag.objects.get_or_create(name=t)
                 if is_tag_created:
@@ -119,19 +124,19 @@ class CommentUpdate(LoginRequiredMixin, UpdateView):
 
 
 class PostSearch(PostList):
-    paginate_by=None
+    paginate_by = None
 
     def get_queryset(self):
-        q=self.kwargs['q']
-        post_list=Post.objects.filter(
+        q = self.kwargs['q']
+        post_list = Post.objects.filter(
             Q(title__contains=q) | Q(tags__name__contains=q)
         ).distinct()
         return post_list
 
     def get_context_data(self, **kwargs):
         context = super(PostSearch, self).get_context_data()
-        q=self.kwargs['q']
-        context['search_info']=f'Search: {q} ({self.get_queryset().count()})'
+        q = self.kwargs['q']
+        context['search_info'] = f'Search: {q} ({self.get_queryset().count()})'
         return context
 
 
@@ -146,10 +151,10 @@ def category_page(request, slug):
         request,
         'blog/post_list.html',
         {
-            'post_list' : post_list,
-            'categories' : Category.objects.all(),
+            'post_list': post_list,
+            'categories': Category.objects.all(),
             'no_category_post_count': Post.objects.filter(category=None).count(),
-            'category' : category,
+            'category': category,
         }
     )
 
@@ -161,10 +166,10 @@ def tag_page(request, slug):
         request,
         'blog/post_list.html',
         {
-            'post_list' : post_list,
-            'categories' : Category.objects.all(),
+            'post_list': post_list,
+            'categories': Category.objects.all(),
             'no_category_post_count': Post.objects.filter(category=None).count(),
-            'tag' : tag,
+            'tag': tag,
         }
     )
 
@@ -185,6 +190,7 @@ def new_comment(request, pk):
             return redirect(post.get_absolute_url())
     else:
         raise PermissionDenied
+
 
 def delete_comment(request, pk):
     comment = get_object_or_404(Comment, pk=pk)
